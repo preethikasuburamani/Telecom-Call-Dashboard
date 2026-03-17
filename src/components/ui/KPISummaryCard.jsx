@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Phone, PoundSterlingIcon, Clock, CheckCircle, XCircle } from 'lucide-react';
+
 
 export default function KPISummaryCard({ data}) {
 
+
     //data filter,reduce for toal call,cost,sucess,failed,duration
     const Calculatedstate =(data)=>{
+   
         if (!data || data.length === 0) return {};
   
             const totalCalls = data.length;

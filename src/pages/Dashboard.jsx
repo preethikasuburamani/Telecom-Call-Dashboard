@@ -5,65 +5,33 @@ import { CallLogTable } from '@/components/ui/CallLogTable'
 import CallsByCities from '@/components/ui/CallsByCities'
 import KPISummaryCard from '@/components/ui/KPISummaryCard'
 import Navbar from '@/components/ui/Navbar'
-import React, { useEffect, useState } from 'react'
+import useFetch from '@/components/ui/useFetch'
+import React, { createContext, useEffect, useState } from 'react'
 import { BrowserRouter as Router,Route,Routes,Link } from 'react-router-dom'
 
 const Dashboard = () => {
     
 
+    //tab state
+    const[activeTab,setActiveTab] = useState("Duration Analysis")
 
-     //Call log data complete data
-        const[data,setData]=useState([])
-    
-        //loading state
-        const[loading,setLoading] = useState(true)
-    
-        //Error state
-        const[error,setError] = useState("")
+    //useFetch to load data from API
+    const {data,error,loading}= useFetch("https://69b30b45e224ec066bdb55a0.mockapi.io/api/v1/cdr") 
+ 
 
-         //tab state
-        const[activeTab,setActiveTab] = useState("Duration Analysis")
-
-        
-        //useEffect to ftech the data 
-        useEffect(() => {
-  
-                const fetchCallLogs = async () => {
-                try {
-                    const response = await fetch('https://69b30b45e224ec066bdb55a0.mockapi.io/api/v1/cdr');
-                    
-                    if (!response.ok) {
-                    throw new Error('Failed to fetch call data');
-                    }
-
-                    const result = await response.json();
-                    setData(result); 
-                } catch (err) {
-                    setError(err.message);
-                } finally {
-                    setLoading(false);
-                }
-                };
-                fetchCallLogs();
-         }, []); 
-
-     if (loading) return <div>Loading dashboard data...</div>;
-     if (error) return <div>Error: {error}</div>;
-
-
-   
+  //loading content
+  if (loading) return <div>Loading dashboard data...</div>;
+  //error content
+  if (error) return <div>Error: {error}</div>;
 
  return (
   <div className="min-h-screen bg-slate-50 p-4 md:p-8 text-slate-900">
     <div className="max-w-[1440px] mx-auto space-y-8">
 
-    
     {/* KPI Summary Section */}
-   
-    <>
+    
       <section><KPISummaryCard data={data} /></section>
-      {/* optionally show all sections in overview */}
-    </>
+ 
       
      {/* Nav bar section*/ }
      <section>

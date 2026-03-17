@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const useFetch = () => {
+const useFetch = (url) => {
 
     //Call log data complete data
     const[data,setData]=useState([])
@@ -9,27 +9,32 @@ const useFetch = () => {
     const[loading,setLoading] = useState(true)
 
     //Error state
-    const[error,setError] = useEffect("")
+    const[error,setError] = useState("")
+
 
     useEffect(()=>{
-        const fetchdata = async()=>{
-            try{
-            const response = await fetch("https://69b30b45e224ec066bdb55a0.mockapi.io/api/v1/cdr")
-            const Apidata = await response.json()
-            setData(Apidata)
-            setLoading(false)
-            }catch(err){
-                setError(err)
-            }
-        }
-    },[])
+    const fetchCallLogs = async () => {
+                try {
+                    const response = await fetch(url);
+                    
+                    if (!response.ok) {
+                    throw new Error('Failed to fetch call data');
+                    }
+
+                    const result = await response.json();
+                    setData(result); 
+                } catch (err) {
+                    setError(err.message);
+                } finally {
+                    setLoading(false);
+                }
+                };
+                fetchCallLogs();
+         }, []); 
 
     
-  return (
-    <div>
-
-    </div>
-  )
+  return {data,error,loading}
 }
 
 export default useFetch
+

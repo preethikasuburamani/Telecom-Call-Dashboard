@@ -16,8 +16,8 @@ const Navbar = ({ activeTab, setActiveTab }) => {
     
 
   return (
-    <nav className="bg-white border-b border-slate-200 sticky top-0 z-10">
-  <div className="flex overflow-x-auto">
+    <nav className="bg-white border-b border-slate-200 sticky top-0 z-100">
+  <div className="flex flex-col sm:flex-row sm:overflow-x-auto">
     {tabs.map((tab) => (
       <button
         key={tab.id}
