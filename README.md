@@ -1,10 +1,10 @@
 ## CDR Analytics Dashboard ##
 A modern, SaaS-style Call Data Record (CDR) Analytics Dashboard built for telecom companies to monitor and analyze call data in real time. The dashboard fetches live CDR data from a REST API and presents it through interactive charts, KPI cards, and detailed call logs — making it easy to track call activity, measure costs, monitor success rates, and spot calling patterns across cities and time periods.
 
-## Live Demo ## :     https://telecom-call-dashboard.vercel.app/
+## Live Demo ## :     https://telecom-call-dashboard.vercel.app/a
 
 ## Screenshots ##
-Show Image : ![Dashboard Overview](./public/screenshots/dashboard.png)
+Show Image : ![Dashboard Overview](./public/screenshort/dashboard.png)
 
 ## Tech Stack ##
 
