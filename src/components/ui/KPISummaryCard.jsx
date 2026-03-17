@@ -1,5 +1,5 @@
 import React from 'react'
-import { Phone, DollarSign, Clock, CheckCircle, XCircle } from 'lucide-react';
+import { Phone, PoundSterlingIcon, Clock, CheckCircle, XCircle } from 'lucide-react';
 
 export default function KPISummaryCard({ data}) {
 
@@ -31,7 +31,7 @@ export default function KPISummaryCard({ data}) {
   return (
     <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
       <KpiCard title="Total Calls" value={ CalculatedData.totalCalls} icon={<Phone size={18}/>} />
-      <KpiCard title="Total Cost" value={`$${ CalculatedData.totalCost?.toFixed(2)}`} icon={<DollarSign size={18}/>} />
+      <KpiCard title="Total Cost" value={`${ CalculatedData.totalCost?.toFixed(2)}`} icon={< PoundSterlingIcon size={18}/>} />
       <KpiCard title="Avg Duration" value={`${ CalculatedData.avgDuration?.toFixed(0)}s`} icon={<Clock size={18}/>} />
       <KpiCard title="Success" value={ CalculatedData.successfulCalls} icon={<CheckCircle size={18} className="text-green-500"/>} />
       <KpiCard title="Failed" value={CalculatedData.failedCalls} icon={<XCircle size={18} className="text-red-500"/>} />

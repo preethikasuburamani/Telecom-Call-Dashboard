@@ -4,7 +4,9 @@ import CallDuration from '@/components/ui/CallDuration'
 import { CallLogTable } from '@/components/ui/CallLogTable'
 import CallsByCities from '@/components/ui/CallsByCities'
 import KPISummaryCard from '@/components/ui/KPISummaryCard'
+import Navbar from '@/components/ui/Navbar'
 import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router,Route,Routes,Link } from 'react-router-dom'
 
 const Dashboard = () => {
     
@@ -18,7 +20,10 @@ const Dashboard = () => {
     
         //Error state
         const[error,setError] = useState("")
-    
+
+         //tab state
+        const[activeTab,setActiveTab] = useState("Duration Analysis")
+
         
         //useEffect to ftech the data 
         useEffect(() => {
@@ -45,65 +50,67 @@ const Dashboard = () => {
      if (loading) return <div>Loading dashboard data...</div>;
      if (error) return <div>Error: {error}</div>;
 
+
+   
+
  return (
   <div className="min-h-screen bg-slate-50 p-4 md:p-8 text-slate-900">
     <div className="max-w-[1440px] mx-auto space-y-8">
+
+    
+    {/* KPI Summary Section */}
+   
+    <>
+      <section><KPISummaryCard data={data} /></section>
+      {/* optionally show all sections in overview */}
+    </>
       
-      {/* 1. Header Section */}
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Analytical Call Dashboard</h1>
-        <p className="text-slate-500">Real-time insights and call performance metrics.</p>
-      </header>
+     {/* Nav bar section*/ }
+     <section>
+        <Navbar  activeTab={activeTab} setActiveTab={setActiveTab}  />
+    </section>    
 
-      {/* 2. KPI Summary Section */}
-      <section>
-        <KPISummaryCard data={data} />
-      </section>
+    
+     <main className="p-6 space-y-6">
 
-      {/* 3. Primary Chart: Full Width Activity Timeline */}
-      <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-        <div className="mb-4">
-          <h2 className="text-lg font-bold text-slate-800">Call Activity (24h)</h2>
-          <p className="text-sm text-slate-500">Peak call volumes throughout the day</p>
-        </div>
-        <CallActivityTimeline data={data} />
-      </section>
 
-      {/* 4. Analytics Grid: Cost, Duration, and Pie Chart */}
-      <section className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        
-        {/* Cost Analysis (Takes up 1 column) */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <div className="mb-4">
-            <h2 className="text-lg font-bold text-slate-800">Cost by City</h2>
-          </div>
-          <CallCostAnalytics data={data} />
-        </div>
+  {activeTab === 'Active Time Line' && (
+    <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+      <CallActivityTimeline data={data} />
+    </section>
+  )}
 
-        {/* Duration Analysis (Takes up 1 column) */}
-        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
-          <div className="mb-4">
-            <h2 className="text-lg font-bold text-slate-800">Duration Metrics</h2>
-          </div>
-          <CallDuration data={data} />
-        </div>
+  {activeTab === 'Cost Analysis' && (
+    <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+      <h2 className="text-lg font-bold text-slate-800 mb-4">Cost by City</h2>
+      <CallCostAnalytics data={data} />
+    </section>
+  )}
 
-        {/* Pie Chart: Calls By Cities (Takes up 1 column) */}
-        {/* Note: No extra div needed around CallsByCities because the component handles its own card styling now */}
-        <CallsByCities data={data} />
-        
-      </section>
+  {activeTab === 'Duration Analysis' && (
+    <section className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+      <h2 className="text-lg font-bold text-slate-800 mb-4">Duration Metrics</h2>
+      <CallDuration data={data} />
+    </section>
+  )}
 
-      {/* 5. Table Section */}
-      <section className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-white">
-          <h2 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Recent Call Logs</h2>
-          <span className="text-xs font-semibold bg-slate-100 px-2 py-1 rounded text-slate-600">
-            {data.length} Total Records
-          </span>
-        </div>
-        <CallLogTable data={data} />
-      </section>
+  {activeTab === 'cities' && (
+    <section><CallsByCities data={data} /></section>
+  )}
+
+  {activeTab === 'logs' && (
+    <section className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+      <div className="p-6 border-b border-slate-100 flex justify-between items-center">
+        <h2 className="text-xl font-bold text-slate-800 uppercase tracking-tight">Recent Call Logs</h2>
+        <span className="text-xs font-semibold bg-slate-100 px-2 py-1 rounded text-slate-600">
+          {data.length} Total Records
+        </span>
+      </div>
+      <CallLogTable data={data} />
+    </section>
+  )}
+
+</main>
       
     </div>
   </div>
