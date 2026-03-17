@@ -4,9 +4,11 @@ A modern, SaaS-style Call Data Record (CDR) Analytics Dashboard built for teleco
 ## Live Demo ## :     https://telecom-call-dashboard.vercel.app/a
 
 ## Screenshots ##
-Show Image : ![Dashboard Overview](./public/screenshort/dashboard.png)
+Show Image : ![Dashboard Overview] <img width="1910" height="925" alt="Screenshot (342)" src="https://github.com/user-attachments/assets/51dc65da-c221-40ee-b0b4-e34ef65e7cf3" />
+
 
 ## Tech Stack ##
+
 
 React + Vite
 TailwindCSS
