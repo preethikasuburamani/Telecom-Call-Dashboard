@@ -4,7 +4,7 @@ A SaaS-style Call Data Record (CDR) Analytics Dashboard that visualizes telecom 
 ## Live Demo ## :     https://telecom-call-dashboard.vercel.app/
 
 ## Screenshots ##
-Show Image : ![Dashboard Overview](./screenshots/dashboard.png)
+Show Image : ![Dashboard Overview](public/screenshots/dashboard.png)
 
 ## Tech Stack ##
 
