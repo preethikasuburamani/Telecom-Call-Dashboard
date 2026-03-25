@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  AreaChart,
-  Area,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer
-} from 'recharts';
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer} from 'recharts';
 
 const CallActivityTimeline = ({ data }) => {
   const processTimelineData = (callData) => {
@@ -25,6 +17,7 @@ const CallActivityTimeline = ({ data }) => {
     callData.forEach((call) => {
       if (call.createdAt) {
         const date = new Date(call.createdAt);
+        
         // Check if the date is valid before getting hours
         if (!isNaN(date.getTime())) {
           const hour = date.getHours();

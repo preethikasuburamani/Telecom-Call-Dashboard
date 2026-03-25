@@ -1,12 +1,5 @@
 import React from 'react';
-import { 
-  PieChart, 
-  Pie, 
-  Cell, 
-  Tooltip, 
-  Legend, 
-  ResponsiveContainer 
-} from "recharts";
+import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recharts";
 
 const CallsByCities = ({ data }) => {
   // 1. Process the API data

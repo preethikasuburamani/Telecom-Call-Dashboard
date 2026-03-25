@@ -3,6 +3,7 @@ import CallCostAnalytics from '@/components/ui/CallCostAnalytics'
 import CallDuration from '@/components/ui/CallDuration'
 import { CallLogTable } from '@/components/ui/CallLogTable'
 import CallsByCities from '@/components/ui/CallsByCities'
+import CitySearchDropdown from '@/components/ui/CitySearchDropdown'
 import KPISummaryCard from '@/components/ui/KPISummaryCard'
 import Navbar from '@/components/ui/Navbar'
 import useFetch from '@/components/ui/useFetch'
@@ -38,6 +39,9 @@ const Dashboard = () => {
         <Navbar  activeTab={activeTab} setActiveTab={setActiveTab}  />
     </section>    
 
+    <section>
+      <CitySearchDropdown data={data}/>
+    </section>
     
      <main className="p-6 space-y-6">
 
