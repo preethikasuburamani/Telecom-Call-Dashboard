@@ -86,7 +86,7 @@ export default function App() {
         {/* City Seaacrh droupdown */}
         <div className="flex items-center gap-4">
           <CitySearchDropdown selectedCity={selectedCity} onCityChange={setSelectedCity} />
-          <span className="text-sm text-slate-500 hidden sm:block">{email}</span>
+         
           <button onClick={handleLogout} className="flex items-center gap-1.5 text-sm text-slate-500 hover:text-red-500 transition-colors">
             <span className="hidden sm:block">Logout</span>
           </button>
