@@ -26,11 +26,7 @@ export default function LoginPage({ onLogin }) {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
-          <div className="bg-blue-500/20 border border-blue-500/40 rounded-2xl p-4 mb-4">
-            <Phone size={32} className="text-blue-400" />
-          </div>
-          <h1 className="text-2xl font-bold text-white">PineVox Analytics</h1>
-          <p className="text-slate-400 text-sm mt-1">Sign in to your dashboard</p>
+          <h1 className="text-2xl font-bold text-white">Sign in to your dashboard</h1>
         </div>
 
         <div className="bg-slate-800/60 backdrop-blur border border-slate-700 rounded-2xl p-8 shadow-2xl">
