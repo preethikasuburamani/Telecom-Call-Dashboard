@@ -1,9 +1,8 @@
-// src/services/api.js
-// Central place for all backend calls
+
 
 const BASE_URL = 'https://pinevox-backend-cyte.onrender.com/api';
 
-// ─── Token helpers ─────────────────────────────────────────────────────────────
+//Token helpers
 export const getToken  = ()         => localStorage.getItem('token');
 export const setToken  = (token)    => localStorage.setItem('token', token);
 export const clearToken = ()        => localStorage.removeItem('token');
@@ -14,7 +13,7 @@ const authHeaders = () => ({
   Authorization: `Bearer ${getToken()}`,
 });
 
-// ─── Auth ──────────────────────────────────────────────────────────────────────
+// Auth
 export const login = async (email, password) => {
   const res = await fetch(`${BASE_URL}/auth/login`, {
     method: 'POST',
@@ -35,14 +34,14 @@ export const logout = () => {
   localStorage.removeItem('email');
 };
 
-// ─── Cities dropdown ───────────────────────────────────────────────────────────
+// Cities dropdown 
 export const fetchCities = async () => {
   const res = await fetch(`${BASE_URL}/calls/cities`, { headers: authHeaders() });
   if (!res.ok) throw new Error('Failed to fetch cities');
   return res.json();   // string[]
 };
 
-// ─── All calls (for charts & KPIs) ────────────────────────────────────────────
+// All calls (for charts & KPIs) 
 export const fetchAllCalls = async (city = '') => {
   const params = city ? `?city=${encodeURIComponent(city)}` : '';
   const res = await fetch(`${BASE_URL}/calls/all${params}`, { headers: authHeaders() });
@@ -50,7 +49,7 @@ export const fetchAllCalls = async (city = '') => {
   return res.json();
 };
 
-// ─── Paginated calls (for table) ──────────────────────────────────────────────
+// Paginated calls (for table) 
 export const fetchCalls = async ({ page = 1, limit = 20, city = '', startDate = '', endDate = '', caller = '' } = {}) => {
   const params = new URLSearchParams({ page, limit });
   if (city)      params.append('city', city);
@@ -60,5 +59,5 @@ export const fetchCalls = async ({ page = 1, limit = 20, city = '', startDate = 
 
   const res = await fetch(`${BASE_URL}/calls?${params}`, { headers: authHeaders() });
   if (!res.ok) throw new Error('Failed to fetch calls');
-  return res.json();  // { calls, total, page, totalPages }
+  return res.json();  
 };
