@@ -1,7 +1,7 @@
 // src/services/api.js
 // Central place for all backend calls
 
-const BASE_URL = 'http://localhost:5000/api';
+const BASE_URL = 'https://pinevox-backend-cyte.onrender.com/api';
 
 // ─── Token helpers ─────────────────────────────────────────────────────────────
 export const getToken  = ()         => localStorage.getItem('token');
