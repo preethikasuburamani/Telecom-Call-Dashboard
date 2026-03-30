@@ -23,6 +23,53 @@ Active Timeline — line chart showing call volume trends by hour and by day
 Calls by City — identify which cities generate the most call traffic
 Call Logs Table — paginated table with full details per call record
 
+**Folder structure**
+CallDashboard
+├─ components.json
+├─ eslint.config.js
+├─ index.html
+├─ jsconfig.json
+├─ package-lock.json
+├─ package.json
+├─ postcss.config.js
+├─ public
+│  ├─ favicon.svg
+│  ├─ icons.svg
+│  └─ ScreenShort
+│     └─ Dashboard.png
+├─ README.md
+├─ src
+│  ├─ App.css
+│  ├─ App.jsx
+│  ├─ assets
+│  │  ├─ hero.png
+│  │  ├─ react.svg
+│  │  └─ vite.svg
+│  ├─ components
+│  │  └─ ui
+│  │     ├─ button.jsx
+│  │     ├─ CallActivityTimeline.jsx
+│  │     ├─ CallCostAnalytics.jsx
+│  │     ├─ CallDuration.jsx
+│  │     ├─ CallLogTable.jsx
+│  │     ├─ CallsByCities.jsx
+│  │     ├─ chart.jsx
+│  │     ├─ CitySearchDropdown.jsx
+│  │     ├─ KPISummaryCard.jsx
+│  │     ├─ Navbar.jsx
+│  │     ├─ table.jsx
+│  │     └─ useFetch.jsx
+│  ├─ index.css
+│  ├─ lib
+│  │  └─ utils.js
+│  ├─ main.jsx
+│  ├─ pages
+│  │  ├─ Dashboard.jsx
+│  │  └─ LoginPage.jsx
+│  └─ services
+│     └─ Api.js
+├─ tailwind.config.js
+└─ vite.config.js
 ## Getting Started ##
 bashgit clone https://github.com/your-username/cdr-analytics-dashboard.git
 cd cdr-analytics-dashboard
