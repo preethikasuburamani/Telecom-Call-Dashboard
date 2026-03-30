@@ -1,29 +1,34 @@
-## CDR Analytics Dashboard ##
+## CDR Analytics Dashboard
+
 A modern, SaaS-style Call Data Record (CDR) Analytics Dashboard built for telecom companies to monitor and analyze call data in real time. The dashboard fetches live CDR data from a REST API and presents it through interactive charts, KPI cards, and detailed call logs — making it easy to track call activity, measure costs, monitor success rates, and spot calling patterns across cities and time periods.
 
-## Live Demo ## :     https://telecom-call-dashboard.vercel.app/a
+## Please Click Here for Live [Dashboard] (https://telecom-call-dashboard.vercel.app/)
 
-## Screenshots ##
+## Screenshots 
 Show Image : ![Dashboard Overview] <img width="1910" height="925" alt="Screenshot (342)" src="https://github.com/user-attachments/assets/51dc65da-c221-40ee-b0b4-e34ef65e7cf3" />
 
 
-## Tech Stack ##
+## Tech Stack 
+
+* React + Vite
+* TailwindCSS
+* shadcn/ui
+* Recharts
+
+## Key Features
+
+* KPI Summary Cards — instantly see Total Calls, Total Cost, Avg Duration, Successful & Failed Calls
+* Duration Analysis — bar chart comparing Shortest, Average, and Longest call durations
+* Cost Analysis — visualize total and average call costs broken down by city
+* Active Timeline — line chart showing call volume trends by hour and by day
+* Calls by City — identify which cities generate the most call traffic
+* Call Logs Table — paginated table with full details per call record
 
 
-React + Vite
-TailwindCSS
-shadcn/ui
-Recharts
+## Project structure
 
-**Key Features**
-KPI Summary Cards — instantly see Total Calls, Total Cost, Avg Duration, Successful & Failed Calls
-Duration Analysis — bar chart comparing Shortest, Average, and Longest call durations
-Cost Analysis — visualize total and average call costs broken down by city
-Active Timeline — line chart showing call volume trends by hour and by day
-Calls by City — identify which cities generate the most call traffic
-Call Logs Table — paginated table with full details per call record
+```bash
 
-**Folder structure**
 CallDashboard
 ├─ components.json
 ├─ eslint.config.js
@@ -70,8 +75,27 @@ CallDashboard
 │     └─ Api.js
 ├─ tailwind.config.js
 └─ vite.config.js
-## Getting Started ##
-bashgit clone https://github.com/your-username/cdr-analytics-dashboard.git
+
+```
+
+## Installation Guide
+
+1.Clone Project Folder
+
+```bash
+git clone https://github.com/your-username/cdr-analytics-dashboard.git
+```
+2. Redirect to the folder
+```bash
 cd cdr-analytics-dashboard
+```
+
+3.Install npm liabrary
+```bash
 npm install
+```
+
+4.npm project
+```bash
 npm run dev
+```
